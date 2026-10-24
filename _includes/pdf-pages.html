@@ -17,16 +17,17 @@
       const pdf = await pdfjsLib.getDocument({ url: box.dataset.src, isEvalSupported: false }).promise;
       for (let n = 1; n <= pdf.numPages; n++) {
         const page = await pdf.getPage(n);
-        const width = page.getViewport({ scale: 1 }).width;
-        const scale = Math.min(3, (box.clientWidth / width) * (window.devicePixelRatio || 1));
-        const viewport = page.getViewport({ scale });
         const canvas = document.createElement("canvas");
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
         canvas.className = "pdf-page";
         canvas.setAttribute("role", "img");
         canvas.setAttribute("aria-label", "Page " + n + " of " + pdf.numPages);
         box.appendChild(canvas);
+        // Draw sharply at the width the page actually gets on screen
+        const width = page.getViewport({ scale: 1 }).width;
+        const scale = Math.min(3, (canvas.clientWidth / width) * (window.devicePixelRatio || 1));
+        const viewport = page.getViewport({ scale });
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
         await page.render({ canvasContext: canvas.getContext("2d"), viewport }).promise;
       }
     } catch (err) {

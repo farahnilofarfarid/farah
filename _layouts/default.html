@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title and page.url != "/" %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ site.font | replace: ' ', '+' }}:ital@0;1&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ site.font | replace: ' ', '+' }}:ital,wght@0,400;0,700;1,400&display=swap">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <style>:root { --font: "{{ site.font }}", Georgia, "Times New Roman", serif; }</style>
+  <style>:root { --font: "{{ site.font }}", "Helvetica Neue", Helvetica, Arial, sans-serif;{% if site.font_size %} --size: {{ site.font_size }}px;{% endif %}{% if site.line_height %} --leading: {{ site.line_height }};{% endif %} }</style>
 </head>
 <body>
-  <div class="page">
+  {% assign panel_open = true %}{% if page.url == "/" %}{% assign panel_open = false %}{% endif %}
+  <div class="page{% unless panel_open %} home{% endunless %}">
     <!-- Column 1: photo, name, menu -->
     <aside class="side">
       <a href="{{ '/' | relative_url }}" class="photo-link">
@@ -22,10 +23,15 @@
 
       <p class="name"><a href="{{ '/' | relative_url }}">{{ site.name }}</a></p>
 
+      <!-- Clicking the open page's menu item again closes the right panel -->
       <nav aria-label="Main">
         <ul class="list">
           {% for item in site.nav %}
-          <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
+          {% if page.url == item.url %}
+          <li><a href="{{ '/' | relative_url }}" class="active" aria-current="page">{{ item.title }}</a></li>
+          {% else %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+          {% endif %}
           {% endfor %}
         </ul>
       </nav>
@@ -37,14 +43,15 @@
       {{ about | markdownify }}
     </section>
 
-    <!-- Column 3: the current page -->
+    {% if panel_open %}
+    <!-- Column 3: the page you clicked -->
     <main class="main">
-      <div class="main-head">
-        <div class="intro">{% if page.intro %}{{ page.intro | markdownify }}{% endif %}</div>
-        {% if site.clock %}<div class="clock" id="clock" aria-hidden="true"></div>{% endif %}
-      </div>
+      <div class="intro">{{ page.intro | default: page.title | markdownify }}</div>
       {{ content }}
     </main>
+    {% endif %}
+
+    {% if site.clock %}<div class="clock" id="clock" aria-hidden="true"></div>{% endif %}
   </div>
 
   {% if site.clock %}

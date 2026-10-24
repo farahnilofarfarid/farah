@@ -2,9 +2,9 @@
 
 A three-column academic website for GitHub Pages, in the style of Cargo's "Portfolio" template:
 
-1. **Left column:** your photo, name, and menu (CV, Research, Teaching)
+1. **Left column:** your photo, name, and menu (Research, CV)
 2. **Middle column:** a short description that stays the same on every page
-3. **Right column:** the page you're on
+3. **Right panel:** opens when you click Research or CV (the home page shows only the first two columns)
 
 ## What to edit
 
@@ -12,13 +12,12 @@ A three-column academic website for GitHub Pages, in the style of Cargo's "Portf
 |---|---|
 | `assets/img/photo.jpg` | Your photo. Replace it with yours, using the same name. Portrait orientation works best. |
 | `assets/files/cv.pdf` | Your CV. Replace it with yours, using the same name. The CV page shows its pages as images, with a small download link. |
-| `_config.yml` | Your name, the menu, the font, and the clock on/off switch |
-| `_includes/about.md` | The description in the middle column. Links are written like `[here](mailto:you@example.com)`. |
-| `index.md` | Home page, which shows your research (papers) |
-| `teaching.md` | Teaching page |
+| `_config.yml` | Your name, the menu, the font and text size, and the clock on/off switch |
+| `_includes/about.md` | The description in the middle column, ending with your email address |
+| `research.md` | Research page (papers). Each section has a label on the left and entries on the right. |
 | `assets/css/style.css` | Look and sizes. The variables at the top control photo size, column widths, text size, and colours. |
 
-To add a page (e.g. "Talks"), copy `teaching.md` to `talks.md`, change its `title` and `permalink` to `/talks/`, then add it to `nav` in `_config.yml`.
+To add a page (e.g. "Teaching"), copy `research.md` to `teaching.md`, change its `title` and `permalink` to `/teaching/`, replace the content, then add it to `nav` in `_config.yml`.
 
 `assets/js/` holds PDF.js (Mozilla, Apache 2.0 licence), which draws the CV pages. Don't edit it.
 

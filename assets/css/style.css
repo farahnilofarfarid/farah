@@ -1,26 +1,25 @@
 /* ---------------------------------------------------------------
    Easy knobs: change these to restyle the whole site.
-   (The font is set in _config.yml.)
+   (The font, text size and line spacing are set in _config.yml.)
    --------------------------------------------------------------- */
 :root {
-  --photo-width: 200px;      /* photo width = width of the left column */
-  --photo-ratio: 5 / 7;      /* photo shape (width / height); 200px wide -> 280px tall */
-  --about-width: 440px;      /* width of the description column */
+  --photo-width: 176px;      /* photo width = width of the left column (same as luisbosshart.com) */
+  --photo-ratio: 176 / 243;  /* photo shape (width / height); 176px wide -> 243px tall */
+  --about-width: 330px;      /* width of the description column */
   --gap: 24px;               /* space between columns */
 
-  /* Black and white, like Cargo */
+  /* Black and white */
   --bg: #ffffff;
-  --text: #000000;
-  --muted: #999999;          /* clock */
-  --rule: #d9d9d9;           /* vertical line before the right column */
+  --text: #1c1c1c;
+  --meta: #8c8c8c;           /* secondary lines (paper status, "Abstract") and the clock */
+  --rule: #d9d9d9;           /* vertical line before the right panel */
   --section-rule: #999999;   /* lines above sections */
-  --link: #0000ee;           /* colour of links in the text (not the menu) */
   --photo-filter: none;      /* set to grayscale(1) to show your photo in black and white */
   --photo-position: center;  /* which part of the photo to keep when cropping, e.g. "center top" */
 
-  --font: "Castoro", Georgia, "Times New Roman", serif;
-  --size: 16px;
-  --leading: 1.33;
+  --font: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --size: 13px;
+  --leading: 1.08;
 }
 
 * { box-sizing: border-box; }
@@ -34,25 +33,36 @@ body {
   font-family: var(--font);
   font-size: var(--size);
   line-height: var(--leading);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a { color: inherit; text-decoration: none; }
 
 ::selection { background: var(--text); color: var(--bg); }
 
-/* One blank line between paragraphs, like Cargo */
+/* One blank line between paragraphs */
 p { margin: 0 0 calc(var(--leading) * 1em); }
 
-small { font-size: 13px; }
+small { font-size: 0.8em; }
 
-/* ---------- Three-column layout ---------- */
+/* Smooth fade between pages in browsers that support it */
+@view-transition { navigation: auto; }
+
+/* ---------- Layout: two columns on the home page, three when a panel is open ---------- */
 .page {
+  position: relative;
   display: grid;
   grid-template-columns: var(--photo-width) minmax(0, var(--about-width)) minmax(0, 1fr);
   grid-template-areas: "side about main";
   column-gap: var(--gap);
   align-items: start;
   padding: 32px 24px 80px;
+}
+
+.page.home {
+  grid-template-columns: var(--photo-width) minmax(0, var(--about-width));
+  grid-template-areas: "side about";
 }
 
 .side  { grid-area: side; }
@@ -62,6 +72,23 @@ small { font-size: 13px; }
   min-height: calc(100vh - 112px);
   padding-left: var(--gap);
   border-left: 1px solid var(--rule);
+  animation: panel-in 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes panel-in {
+  from { opacity: 0; transform: translateX(14px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main { animation: none; }
+}
+
+.clock {
+  position: absolute;
+  top: 32px;
+  right: 24px;
+  color: var(--meta);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ---------- Column 1 ---------- */
@@ -76,8 +103,11 @@ small { font-size: 13px; }
   filter: var(--photo-filter);
 }
 
+/* Your name is the only bold text on the site */
 .name {
-  margin: 14px 0 calc(var(--leading) * 1em);
+  margin: 12px 0 1.1em;
+  font-size: 1.25em;         /* name size, relative to the text size */
+  line-height: 1.15;
   font-weight: 700;
 }
 
@@ -88,77 +118,76 @@ small { font-size: 13px; }
 }
 
 .side a:hover,
-.side a.active { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.side a.active { text-decoration: underline; text-underline-offset: 0.13em; text-decoration-thickness: 1px; }
 
 /* ---------- Column 2 ---------- */
 .about p:last-child { margin-bottom: 0; }
-.about a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.about a { text-decoration: underline; text-underline-offset: 0.13em; text-decoration-thickness: 1px; }
 
-/* ---------- Column 3 ---------- */
-.main-head {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--gap);
-  margin-bottom: calc(var(--leading) * 2em);
-}
-
+/* ---------- Column 3 (right panel) ---------- */
+.intro { padding-right: 6em; margin-bottom: 3em; }
 .intro p { margin: 0; }
 
-.clock {
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-.main a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.main a { text-decoration: underline; text-underline-offset: 0.13em; text-decoration-thickness: 1px; }
+.main a:hover { text-decoration-thickness: 2px; }
 
 .main img { display: block; max-width: 100%; height: auto; margin: 0 auto 2.8em; }
 
-/* Section with a line above and an uppercase heading */
+.meta { color: var(--meta); }
+
+/* Section row: label on the left third, entries on the right two thirds, a line above each */
 .section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  column-gap: var(--gap);
+  margin: 0 0 2.6em;
+}
+
+.section h2,
+.section .items {
   border-top: 1px solid var(--section-rule);
-  padding-top: 12px;
-  margin: 0 0 3.5em;
+  padding-top: 0.6em;
 }
 
 .section h2 {
-  margin: 0 0 calc(var(--leading) * 1em);
-  font-size: 13.5px;
+  margin: 0;
+  font-size: 1em;
   font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
 }
 
-.section p:last-child { margin-bottom: 0; }
+.section .items > p:last-child { margin-bottom: 0; }
 
 /* Paper entries */
 .entry { margin: 0 0 calc(var(--leading) * 1em); }
 .entry:last-child { margin-bottom: 0; }
 
-.entry details { margin-top: 2px; }
 .entry summary {
   display: inline;
   cursor: pointer;
-  font-style: italic;
+  color: var(--meta);
   list-style: none;
 }
 .entry summary::-webkit-details-marker { display: none; }
-.entry summary::after { content: " +"; font-style: normal; }
+.entry summary::after { content: " +"; }
 .entry details[open] summary::after { content: " \2013"; }
-.entry details p { margin: 4px 0 0; max-width: 62ch; }
+.entry details p { margin: 0; }
 
-/* PDF shown as page images (CV page) */
-.pdf-pages { max-width: 760px; }
+/* PDF pages shown as images (CV page): side by side when there is room */
+.pdf-pages {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: var(--gap);
+  align-items: start;
+}
 
 .pdf-page {
   display: block;
   width: 100%;
   height: auto;
   border: 1px solid var(--rule);
-  margin: 0 0 var(--gap);
 }
 
-/* ---------- Medium screens: description sits above the page ---------- */
+/* ---------- Medium screens: the panel sits under the description ---------- */
 @media (max-width: 1100px) {
   .page {
     grid-template-columns: var(--photo-width) minmax(0, 1fr);
@@ -177,14 +206,24 @@ small { font-size: 13px; }
   }
 }
 
-/* ---------- Phones: one column ---------- */
+/* ---------- Phones: one column, slightly larger text ---------- */
 @media (max-width: 680px) {
-  .page {
+  html:root { --size: 15px; }  /* "html:root" so it wins over the size set in _config.yml */
+
+  .page,
+  .page.home {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "side" "about" "main";
     row-gap: 32px;
     padding: 24px 16px 64px;
   }
 
+  .clock { top: 24px; right: 16px; }
+
   .photo { width: 150px; }
+
+  .section { grid-template-columns: minmax(0, 1fr); }
+  .section .items { border-top: 0; padding-top: 0.6em; }
+
+  .pdf-pages { grid-template-columns: minmax(0, 1fr); }
 }
