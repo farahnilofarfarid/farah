@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title and page.url != "/" %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ site.font | replace: ' ', '+' }}:ital@0;1&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <style>:root { --font: "{{ site.font }}", Georgia, "Times New Roman", serif; }</style>
+</head>
+<body>
+  <div class="page">
+    <!-- Column 1: photo, name, menu -->
+    <aside class="side">
+      <a href="{{ '/' | relative_url }}" class="photo-link">
+        <img class="photo" src="{{ site.photo | relative_url }}" alt="Photo of {{ site.name }}">
+      </a>
+
+      <p class="name"><a href="{{ '/' | relative_url }}">{{ site.name }}</a></p>
+
+      <nav aria-label="Main">
+        <ul class="list">
+          {% for item in site.nav %}
+          <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Column 2: description (edit _includes/about.md) -->
+    <section class="about">
+      {% capture about %}{% include about.md %}{% endcapture %}
+      {{ about | markdownify }}
+    </section>
+
+    <!-- Column 3: the current page -->
+    <main class="main">
+      <div class="main-head">
+        <div class="intro">{% if page.intro %}{{ page.intro | markdownify }}{% endif %}</div>
+        {% if site.clock %}<div class="clock" id="clock" aria-hidden="true"></div>{% endif %}
+      </div>
+      {{ content }}
+    </main>
+  </div>
+
+  {% if site.clock %}
+  <script>
+    (function () {
+      var el = document.getElementById("clock");
+      function tick() { el.textContent = new Date().toLocaleTimeString("en-GB"); }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+  {% endif %}
+</body>
+</html>

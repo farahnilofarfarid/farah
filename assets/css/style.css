@@ -1,0 +1,190 @@
+/* ---------------------------------------------------------------
+   Easy knobs: change these to restyle the whole site.
+   (The font is set in _config.yml.)
+   --------------------------------------------------------------- */
+:root {
+  --photo-width: 200px;      /* photo width = width of the left column */
+  --photo-ratio: 5 / 7;      /* photo shape (width / height); 200px wide -> 280px tall */
+  --about-width: 440px;      /* width of the description column */
+  --gap: 24px;               /* space between columns */
+
+  /* Black and white, like Cargo */
+  --bg: #ffffff;
+  --text: #000000;
+  --muted: #999999;          /* clock */
+  --rule: #d9d9d9;           /* vertical line before the right column */
+  --section-rule: #999999;   /* lines above sections */
+  --link: #0000ee;           /* colour of links in the text (not the menu) */
+  --photo-filter: none;      /* set to grayscale(1) to show your photo in black and white */
+  --photo-position: center;  /* which part of the photo to keep when cropping, e.g. "center top" */
+
+  --font: "Castoro", Georgia, "Times New Roman", serif;
+  --size: 16px;
+  --leading: 1.33;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: var(--size);
+  line-height: var(--leading);
+}
+
+a { color: inherit; text-decoration: none; }
+
+::selection { background: var(--text); color: var(--bg); }
+
+/* One blank line between paragraphs, like Cargo */
+p { margin: 0 0 calc(var(--leading) * 1em); }
+
+small { font-size: 13px; }
+
+/* ---------- Three-column layout ---------- */
+.page {
+  display: grid;
+  grid-template-columns: var(--photo-width) minmax(0, var(--about-width)) minmax(0, 1fr);
+  grid-template-areas: "side about main";
+  column-gap: var(--gap);
+  align-items: start;
+  padding: 32px 24px 80px;
+}
+
+.side  { grid-area: side; }
+.about { grid-area: about; }
+.main  {
+  grid-area: main;
+  min-height: calc(100vh - 112px);
+  padding-left: var(--gap);
+  border-left: 1px solid var(--rule);
+}
+
+/* ---------- Column 1 ---------- */
+.photo-link { display: block; }
+
+.photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--photo-ratio);
+  object-fit: cover;
+  object-position: var(--photo-position);
+  filter: var(--photo-filter);
+}
+
+.name {
+  margin: 14px 0 calc(var(--leading) * 1em);
+  font-weight: 700;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.side a:hover,
+.side a.active { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+/* ---------- Column 2 ---------- */
+.about p:last-child { margin-bottom: 0; }
+.about a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+/* ---------- Column 3 ---------- */
+.main-head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gap);
+  margin-bottom: calc(var(--leading) * 2em);
+}
+
+.intro p { margin: 0; }
+
+.clock {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.main a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+.main img { display: block; max-width: 100%; height: auto; margin: 0 auto 2.8em; }
+
+/* Section with a line above and an uppercase heading */
+.section {
+  border-top: 1px solid var(--section-rule);
+  padding-top: 12px;
+  margin: 0 0 3.5em;
+}
+
+.section h2 {
+  margin: 0 0 calc(var(--leading) * 1em);
+  font-size: 13.5px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.section p:last-child { margin-bottom: 0; }
+
+/* Paper entries */
+.entry { margin: 0 0 calc(var(--leading) * 1em); }
+.entry:last-child { margin-bottom: 0; }
+
+.entry details { margin-top: 2px; }
+.entry summary {
+  display: inline;
+  cursor: pointer;
+  font-style: italic;
+  list-style: none;
+}
+.entry summary::-webkit-details-marker { display: none; }
+.entry summary::after { content: " +"; font-style: normal; }
+.entry details[open] summary::after { content: " \2013"; }
+.entry details p { margin: 4px 0 0; max-width: 62ch; }
+
+/* PDF shown as page images (CV page) */
+.pdf-pages { max-width: 760px; }
+
+.pdf-page {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  margin: 0 0 var(--gap);
+}
+
+/* ---------- Medium screens: description sits above the page ---------- */
+@media (max-width: 1100px) {
+  .page {
+    grid-template-columns: var(--photo-width) minmax(0, 1fr);
+    grid-template-areas: "side about" "side main";
+    row-gap: 40px;
+  }
+
+  .about { max-width: var(--about-width); }
+
+  .main {
+    min-height: 0;
+    padding-left: 0;
+    padding-top: 24px;
+    border-left: 0;
+    border-top: 1px solid var(--rule);
+  }
+}
+
+/* ---------- Phones: one column ---------- */
+@media (max-width: 680px) {
+  .page {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "side" "about" "main";
+    row-gap: 32px;
+    padding: 24px 16px 64px;
+  }
+
+  .photo { width: 150px; }
+}

@@ -1,0 +1,36 @@
+{% comment %}
+  Shows every page of a PDF as an image.
+  Usage: include pdf-pages.html src="/assets/files/cv.pdf"
+{% endcomment %}
+{% assign pdf_src = include.src | relative_url %}
+<div class="pdf-pages" data-src="{{ pdf_src }}">
+  <noscript><p><a href="{{ pdf_src }}">Open the PDF</a></p></noscript>
+</div>
+
+<script type="module">
+  import * as pdfjsLib from "{{ '/assets/js/pdf.min.js' | relative_url }}";
+  pdfjsLib.GlobalWorkerOptions.workerSrc = "{{ '/assets/js/pdf.worker.min.js' | relative_url }}";
+
+  for (const box of document.querySelectorAll(".pdf-pages:not([data-done])")) {
+    box.dataset.done = "1";
+    try {
+      const pdf = await pdfjsLib.getDocument({ url: box.dataset.src, isEvalSupported: false }).promise;
+      for (let n = 1; n <= pdf.numPages; n++) {
+        const page = await pdf.getPage(n);
+        const width = page.getViewport({ scale: 1 }).width;
+        const scale = Math.min(3, (box.clientWidth / width) * (window.devicePixelRatio || 1));
+        const viewport = page.getViewport({ scale });
+        const canvas = document.createElement("canvas");
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        canvas.className = "pdf-page";
+        canvas.setAttribute("role", "img");
+        canvas.setAttribute("aria-label", "Page " + n + " of " + pdf.numPages);
+        box.appendChild(canvas);
+        await page.render({ canvasContext: canvas.getContext("2d"), viewport }).promise;
+      }
+    } catch (err) {
+      box.innerHTML = '<p><a href="' + box.dataset.src + '">Open the PDF</a></p>';
+    }
+  }
+</script>

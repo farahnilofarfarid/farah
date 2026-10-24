@@ -1,0 +1,31 @@
+# ---------------------------------------------------------------
+# Site settings — edit these, then commit. GitHub rebuilds the site.
+# ---------------------------------------------------------------
+title: Farah Nilofar Farid
+description: Personal academic website of Farah Nilofar Farid.
+url: "https://farahnilofarfarid.com"
+baseurl: ""
+
+# Left column: photo, then your name, then the menu.
+photo: /assets/img/photo.jpg
+name: Farah Nilofar Farid
+
+# Menu. Add, remove, or reorder lines. Each page shows in the right column.
+nav:
+  - title: CV
+    url: /cv/
+  - title: Research
+    url: /
+  - title: Teaching
+    url: /teaching/
+
+# Font: any Google Fonts family that has an italic.
+# Closest free matches to Cargo's font, best first: Castoro, Piazzolla, STIX Two Text
+font: Castoro
+
+# Live clock in the top-right corner (visitor's local time). Set to false to hide.
+clock: true
+
+markdown: kramdown
+exclude:
+  - README.md
