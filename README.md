@@ -10,16 +10,16 @@ A three-column academic website for GitHub Pages, in the style of Cargo's "Portf
 
 | File | What it controls |
 |---|---|
-| `assets/img/photo.jpg` | Your photo. Replace it with yours, using the same name. Portrait orientation works best. |
-| `assets/files/cv.pdf` | Your CV. Replace it with yours, using the same name. The CV page shows its pages as images, with a small download link. |
+| `assets/img/photo.jpg` | Your photo. Replace it with a new one using the same name; it is shown uncropped (3:4 portrait). |
+| `cv.md` | The CV page, written out as text (label on the left, entries on the right, dates in grey) |
+| `assets/files/cv.pdf` | The PDF behind the CV page's [download] link. Replace it with a new one using the same name. |
 | `_config.yml` | Your name, the menu, the font and text size, and the clock on/off switch |
-| `_includes/about.md` | The description in the middle column, ending with your email address |
+| `_includes/about.md` | The short description in the middle column, ending with your email addresses |
 | `research.md` | Research page (papers). Each section has a label on the left and entries on the right. |
 | `assets/css/style.css` | Look and sizes. The variables at the top control photo size, column widths, text size, and colours. |
 
 To add a page (e.g. "Teaching"), copy `research.md` to `teaching.md`, change its `title` and `permalink` to `/teaching/`, replace the content, then add it to `nav` in `_config.yml`.
 
-`assets/js/` holds PDF.js (Mozilla, Apache 2.0 licence), which draws the CV pages. Don't edit it.
 
 ## Put it on GitHub
 

@@ -1,9 +1,7 @@
-<!-- Replace this sample text with your description. The last line is your email address, shown as plain text. -->
+<!-- Your description. Keep it short: the Research page has the details. -->
 
-Lorem Ipsum EST; Consectetur University
+I am a PhD candidate in Political Science at Johns Hopkins University and currently a Visiting Student Research Collaborator in the Department of Politics at Princeton University.
 
-Dolor sit amet, consectetur adipiscing elit. Ut nisl metus, accumsan id eros id, vehicula tincidunt nisl. Nulla sit amet urna ut mi tempor euismod. Fusce elementum sapien eget elit sodales fringilla.
+I work in political theory, the history of political thought, and political economy. My dissertation, *Passages of Capital*, examines capitalism and empire in the world economy before the First World War.
 
-Curabitur congue accumsan ante, consectetur eleifend purus laoreet in. Ut facilisis tincidunt neque in pharetra. In ut libero ut ex commodo venenatis ac vel ligula.
-
-you@example.com
+You can reach me at ffarid3@jhu.edu or ff6286@princeton.edu
