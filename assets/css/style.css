@@ -13,6 +13,10 @@
   --text: #1c1c1c;
   --meta: #8c8c8c;           /* secondary lines (paper status, "Abstract") and the clock */
   --accent: #c4271d;         /* the square beside the open menu item (Research or CV) */
+  --marker: #d4d4d4;         /* the square beside the other menu items */
+  --link: #2151cc;           /* links: your email addresses and the CV's [download] */
+  --subhead: #6e6e6e;        /* CV subheadings, e.g. "Papers presented" */
+  --mono: "Roboto Mono", "Courier New", monospace;  /* monospace font for CV subheadings */
   --rule: #d9d9d9;           /* vertical line before the right panel */
   --section-rule: #999999;   /* lines above sections */
   --photo-filter: none;      /* set to grayscale(1) to show your photo in black and white */
@@ -119,25 +123,29 @@ small { font-size: 0.8em; }
 }
 
 .side a:hover { text-decoration: underline; text-underline-offset: 0.13em; text-decoration-thickness: 1px; }
-/* The open page gets a small red square hanging to the left of its menu item */
-.side a.active { position: relative; font-weight: 500; }
-.side a.active::before {
+/* Every menu item has a small square to its left: light grey, red for the open page */
+.side .list a { position: relative; }
+.side .list a::before {
   content: "";
   position: absolute;
   left: -0.85em;
   top: 0.5em;
   width: 0.32em;
   height: 0.32em;
-  background: var(--accent);
+  background: var(--marker);
 }
+.side .list a.active { font-weight: 500; }
+.side .list a.active::before { background: var(--accent); }
 
 /* ---------- Column 2 ---------- */
+.about { font-size: calc(var(--size) + 1px); }  /* intro text, a little larger than the rest */
 .about p:last-child { margin-bottom: 0; }
-.about a { text-decoration: underline; text-underline-offset: 0.13em; text-decoration-thickness: 1px; }
+.about a { color: var(--link); text-decoration: underline; text-underline-offset: 0.13em; text-decoration-thickness: 1px; }
 
 /* ---------- Column 3 (right panel) ---------- */
 .intro { padding-right: 6em; margin-bottom: 3em; }
 .intro p { margin: 0; }
+.intro a { color: var(--link); }  /* e.g. the CV's [download] link */
 
 .main a { text-decoration: underline; text-underline-offset: 0.13em; text-decoration-thickness: 1px; }
 .main a:hover { text-decoration-thickness: 2px; }
@@ -223,6 +231,6 @@ small { font-size: 0.8em; }
 
 }
 
-/* CV: subheadings in small capitals, dates in grey */
-.subhead { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.82em; }
+/* CV: subheadings in a grey monospace (as on celiaeckert.com), dates in a lighter grey */
+.subhead { font-family: var(--mono); color: var(--subhead); font-size: 0.92em; letter-spacing: 0.047em; }
 .date { color: var(--meta); }

@@ -31,7 +31,7 @@ permalink: /research/
       <span class="meta">Under review</span>
       <details>
         <summary>Abstract</summary>
-        <p>Weber’s untranslated 1892 survey of the East Elbian estates shows landowners securing labour more cheaply through tenancies, payments in kind and foreign seasonal workers than through the free wage contract. Against the revival of radical republicanism, which retrieves the wage worker as capitalism’s political subject, the article draws on Jairus Banaji to argue that political theory should understand capitalism through labour deployment rather than define it by free wage labour, and that collective agency must be built across differences of status rather than presumed from a shared place in production.</p>
+        <p>Recent political theory has revived the wage worker as the figure through which to understand and contest capitalism, while setting aside the twentieth-century debates in which that figure was tested against how labour was actually organized. This article returns to that test in Imperial Germany. Reading Max Weber’s untranslated 1892 survey of the East Elbian estates against the Social Democratic Party’s definition of labour, I show landowners securing workers more cheaply by combining wages with access to land, payments in kind, household obligations and foreign seasonal labour than through the free wage contract. Drawing on Jairus Banaji, I argue that political theory should understand capitalism through labour deployment, the varied arrangements by which capital recruits and controls labour, rather than define it by free wage labour. Collective agency must then be built across differences of status rather than presumed from a shared place in production.</p>
       </details>
     </div>
 
@@ -40,7 +40,7 @@ permalink: /research/
       <span class="meta">In preparation</span>
       <details>
         <summary>Abstract</summary>
-        <p>Reading Keynes on Indian currency alongside Ambedkar’s critique, the article shows how Council Bills and the London-held Gold Standard Reserve turned Indian revenue into metropolitan credit. Monetary sovereignty, it argues, is a relation rather than a possession: London’s monetary power rested on India’s exclusion from control over its own currency.</p>
+        <p>Political theory has recently recovered money and credit as political institutions, but it treats them within a single polity, while theories of empire have centred sovereignty, law and labour and left credit aside. This article brings the two together through British India between 1890 and 1914. Reading John Maynard Keynes’s <em>Indian Currency and Finance</em> (1913), written after his years at the India Office, alongside B. R. Ambedkar’s critique and economic histories of the Anglo-Indian monetary relation, I reconstruct how Council Bills, remittances and reserves held in London turned Indian revenue into cheap credit for the City. I argue that monetary sovereignty is a relation rather than a possession: London’s capacity to finance global accumulation rested on India’s exclusion from control over its own currency. Finance, on this account, was central to capitalism well before the late stage to which Hobson, Hilferding and Lenin assigned it.</p>
       </details>
     </div>
 
@@ -49,7 +49,7 @@ permalink: /research/
       <span class="meta">In preparation</span>
       <details>
         <summary>Abstract</summary>
-        <p>Following Curzon on the Anglo-Russian rivalry over the Peshawar–Bukhara route, the article argues that commerce remained a principal medium of imperial power in the period Lenin defined by the export of capital, and that the Humean prospect of mutual enrichment could not reach those who carried the trade but had no standing in the contest.</p>
+        <p>Political theory has largely set commerce aside in its account of capitalism and empire, inheriting a liberal view of trade as a force for peace among nations and a Marxist view of it as superseded by the export of capital. This article restores commerce through the Anglo-Russian rivalry on the North-West Frontier between 1890 and 1914. The caravan route from Peshawar over the Khyber Pass to Bukhara crossed three lines of imperial authority, at each of which passage was priced and controlled. Reading George Curzon’s writings on Central Asia and Persia, I argue that the two empires contested not a market but the passage of goods through a frontier that belonged to neither. The jealousy of trade that Istvan Hont traced in eighteenth-century Europe persisted here between empires, at the expense of the Afghan and Pashtun traders who carried it.</p>
       </details>
     </div>
   </div>
@@ -70,6 +70,6 @@ permalink: /research/
   <div class="items">
     <p>Nature and Freedom</p>
 
-    <p>A third strand of my research concerns the relationship between nature and freedom in Aristotle, Hegel and Marx, and the place of philosophy of nature in their social and political thought. I am interested in how they understand human beings as both natural and historical beings, and what this means for the organization of collective life. The project’s first paper, on political organicism, approaches these questions through Marx’s critique of Hegel, asking how the separation of state and civil society unsettles the conception of political community as an organic whole. I am currently preparing it for publication.</p>
+    <p>A third strand of my research concerns the relationship between nature and freedom in Aristotle, Hegel and Marx, and the place of philosophy of nature in their social and political thought. I am interested in how they understand human beings as both natural and historical beings, and what this means for the organization of collective life. The project’s first paper, “Political Organicism: An Intellectual Lineage through Aristotle, Hegel, and Marx,” approaches these questions through Marx’s critique of Hegel, asking how the separation of state and civil society unsettles the conception of political community as an organic whole. I am currently preparing it for publication.</p>
   </div>
 </section>

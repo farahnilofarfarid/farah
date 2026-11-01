@@ -8,7 +8,7 @@ permalink: /cv/
 <!--
   Your CV as text. Each <section> is one row: its label on the left, its entries on the right.
   Copy a <div class="entry"> ... </div> block to add an item, or a whole <section> to add a row.
-  Subheadings go in <span class="subhead"> ... </span> (small capitals), dates in <span class="date"> ... </span> (grey),
+  Subheadings go in <span class="subhead"> ... </span> (grey monospace), dates in <span class="date"> ... </span> (grey),
   and other secondary lines in <span class="meta"> ... </span> (grey).
   The PDF version is assets/files/cv.pdf (the [download] link at the top).
 -->

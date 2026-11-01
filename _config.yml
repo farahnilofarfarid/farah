@@ -19,7 +19,7 @@ nav:
 
 # Font (a Google Fonts family with regular, medium, italic and bold), text size in pixels, and line spacing.
 font: Inter Tight
-font_size: 13
+font_size: 14
 line_height: 1.08
 
 # Live clock in the top-right corner (visitor's local time). Set to false to hide.
