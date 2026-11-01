@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="sea" cx="38%" cy="32%" r="75%">
+      <stop offset="0" stop-color="#7fd3ff"/>
+      <stop offset="0.6" stop-color="#2fa8ef"/>
+      <stop offset="1" stop-color="#1673c4"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2f2f2"/>
+      <stop offset="1" stop-color="#9a9a9a"/>
+    </linearGradient>
+    <clipPath id="disc"><circle cx="32" cy="32" r="27"/></clipPath>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#rim)"/>
+  <circle cx="32" cy="32" r="27" fill="url(#sea)"/>
+  <g clip-path="url(#disc)" fill="none" stroke="#0b3b66" stroke-width="2.6">
+    <line x1="32" y1="4" x2="32" y2="60"/>
+    <ellipse cx="32" cy="32" rx="13" ry="27"/>
+    <ellipse cx="32" cy="32" rx="23" ry="27"/>
+    <line x1="4" y1="32" x2="60" y2="32"/>
+    <line x1="4" y1="19" x2="60" y2="19"/>
+    <line x1="4" y1="45" x2="60" y2="45"/>
+  </g>
+  <circle cx="32" cy="32" r="27" fill="none" stroke="#0b3b66" stroke-width="1.5"/>
+</svg>
