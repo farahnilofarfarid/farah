@@ -15,9 +15,11 @@ permalink: /research/
     <p><em>Passages of Capital: Labour, Credit, and Commerce in the Imperial World Economy, 1890–1914</em><br>
     <span class="meta">Committee: Inés Valdez (chair), Joshua Simon, Glory Liu, Samuel Chambers</span></p>
 
-    <p>What becomes of political theory’s account of capitalism if the relations it treats as peripheral prove constitutive of its operation? Political theory still works with a picture of capitalism formed in the disputes of European socialism, in which commerce belongs to capitalism’s prehistory, industrial wage labour defines its maturity, and finance marks its final stage. <em>Passages of Capital</em> argues instead that these relations operated together across imperial space, binding estate, colony and frontier into one economy whose differences were constitutive of capitalism rather than signs of its incomplete development.</p>
+    <p>My dissertation and book project examines how capitalism and empire shaped each other in the world economy between 1890 and 1914. In political theory, capitalism is usually told as a story made in Europe’s industrial centres and carried outward to the rest of the world. I reconstruct capitalism from the standpoint of circulation rather than production, following the movement of labour, credit, and goods across imperial space. It took shape, I argue, at the peripheries of empire as much as at its centres, through the unequal terms on which those peripheries were incorporated.</p>
 
-    <p>The project makes this case through three witnesses who described empire’s political economy from within: Max Weber on labour on the estates of East Elbian Prussia, John Maynard Keynes on the currency and finance of British India, and George Curzon on the overland trade routes of the North-West Frontier. Each chapter is written as a standalone article.</p>
+    <p>I read empire’s economic records alongside its political texts, extending political theory’s archive to the sources through which the world economy documented its own operation. The first of three chapters studies labour on the grain estates of eastern Prussia, through Max Weber’s 1892 survey of their farm workers. The second studies credit at the India Office in London, which held India’s currency reserves and lent them to banks in the City, through John Maynard Keynes’s <em>Indian Currency and Finance</em> (1913). The third studies trade along the caravan route from Peshawar over the Khyber Pass to Bukhara, through George Curzon’s writings on Central Asia.</p>
+
+    <p>Together, these chapters ask how political theory’s concepts of labour, money, and trade change when imperial relations are taken as their starting point. They also raise a question for the present: how much of what wealthy democracies experience as economic instability reflects conditions long familiar elsewhere? My research contributes to the history of political thought, global political economy, and the histories of empire and capitalism.</p>
   </div>
 </section>
 
@@ -60,5 +62,14 @@ permalink: /research/
     <span class="meta">Supported by an APSA Centennial Center Summer Research Grant, 2026</span></p>
 
     <p>My second project examines postcolonial efforts to change the terms of participation in the world economy. Its first stage centers on Mahbub ul Haq, the Pakistani World Bank economist later known as the architect of the Human Development Index, and his part in debates over a New International Economic Order, including his proposal for an international central bank that would issue a world currency and allocate credit according to development needs rather than existing wealth. Haq concluded late in life that developing countries had “reached out for international justice while denying economic justice to their own people.” Reading his writings alongside the World Bank Group Archives and UNCTAD’s records, I examine how he connected international monetary reform to domestic redistribution, and where these ambitions came into tension.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Third Project</h2>
+  <div class="items">
+    <p>Nature and Freedom</p>
+
+    <p>A third strand of my research concerns the relationship between nature and freedom in Aristotle, Hegel and Marx, and the place of philosophy of nature in their social and political thought. I am interested in how they understand human beings as both natural and historical beings, and what this means for the organization of collective life. The project’s first paper, on political organicism, approaches these questions through Marx’s critique of Hegel, asking how the separation of state and civil society unsettles the conception of political community as an organic whole. I am currently preparing it for publication.</p>
   </div>
 </section>
