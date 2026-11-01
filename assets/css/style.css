@@ -16,7 +16,7 @@
   --marker: #d4d4d4;         /* the square beside the other menu items */
   --link: #2151cc;           /* links: your email addresses and the CV's [download] */
   --subhead: #6e6e6e;        /* CV subheadings, e.g. "Papers presented" */
-  --mono: "Roboto Mono", "Courier New", monospace;  /* monospace font for CV subheadings */
+  --mono: "DM Mono", "Courier New", monospace;  /* monospace font for CV subheadings */
   --rule: #d9d9d9;           /* vertical line before the right panel */
   --section-rule: #999999;   /* lines above sections */
   --photo-filter: none;      /* set to grayscale(1) to show your photo in black and white */
@@ -231,6 +231,8 @@ small { font-size: 0.8em; }
 
 }
 
-/* CV: subheadings in a grey monospace (as on celiaeckert.com), dates in a lighter grey */
+/* CV: subheadings in a grey monospace (DM Mono), dates in a lighter grey */
 .subhead { font-family: var(--mono); color: var(--subhead); font-size: 0.92em; letter-spacing: 0.047em; }
 .date { color: var(--meta); }
+/* Specialization / Competence: as grey as the dates, with a little space underneath */
+.subhead.area { display: block; color: var(--meta); margin-bottom: 0.45em; }

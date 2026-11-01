@@ -16,8 +16,8 @@ permalink: /cv/
 <section class="section">
   <h2>Areas of Concentration</h2>
   <div class="items">
-    <div class="entry"><span class="subhead">Specialization</span><br>History of Political Thought; Political Economy; Empire and Anticolonial Thought; Marx and Marxism</div>
-    <div class="entry"><span class="subhead">Competence</span><br>International Relations Theory; Ancient and Modern Political Thought; Politics of Nature</div>
+    <div class="entry"><span class="subhead area">Specialization</span>History of Political Thought; Political Economy; Empire and Anticolonial Thought; Marx and Marxism</div>
+    <div class="entry"><span class="subhead area">Competence</span>International Relations Theory; Ancient and Modern Political Thought; Politics of Nature</div>
   </div>
 </section>
 
